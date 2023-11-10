@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  airflow:
+    container_name: airflow
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: airflow
+    networks:
+      - local
+    ports:
+      - 8080:8080
+networks:
+  local:
+    name: local
+    driver: bridge
